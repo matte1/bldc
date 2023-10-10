@@ -1712,8 +1712,9 @@ static void decode_msg(uint32_t eid, uint8_t *data8, int len, bool is_replaced) 
 
 		case CAN_PACKET_SET_CURRENT_BRAKE_REL:
 			ind = 0;
-			mc_interface_set_brake_current_rel(buffer_get_float32(data8, 1e5, &ind));
-			timeout_reset();
+			mc_interface_get_amp_hours(true);
+			// mc_interface_set_brake_current_rel(buffer_get_float32(data8, 1e5, &ind));
+			// timeout_reset();
 			break;
 
 		case CAN_PACKET_SET_CURRENT_HANDBRAKE:
